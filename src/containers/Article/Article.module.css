@@ -1,0 +1,110 @@
+.ProductPage{
+    display: flex;
+}
+
+.ImageBox{
+    padding-top: 46px;
+    padding-bottom: 35px;
+    height: 100vh;
+    box-sizing: border-box;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.Image{
+    /* height: auto; */
+    height: 100%;
+    width: auto;
+    overflow:hidden;
+}
+.Info{
+    font-size: 1.5625rem;
+    font-weight: 700;
+    font-family: 'Apercu', sans-serif;
+    margin: 0;
+    margin-bottom: 5%;
+    line-height: 37.5px;
+}
+
+.InfoProduct{
+    margin-top: 46px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    box-sizing: border-box;
+    padding: 68px 80px 68px 56px;
+}
+.SizeForm{
+    display: flex;
+    flex-direction: column;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.Selector{
+    font-size: 1rem;
+    font-family: 'Apercu', sans-serif;
+	font-weight: 700;
+	line-height: 22.5px;
+	text-decoration: none solid rgb(0, 0, 0);
+	text-align: start;
+	word-spacing: 0px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 16px;
+}
+
+.SubmitButton{
+    text-transform: uppercase;
+    font-family: 'Apercu', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+	line-height: 22.5px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    padding: 10px 28px;
+    cursor: pointer;
+}
+
+.SubmitButton:disabled,
+.SubmitButton[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.Description{
+    margin-top: 5%;
+    margin-bottom: 10%;
+    font-size: 1.2rem;
+}
+
+
+@media (max-width: 990px){
+    .ProductPage{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .ImageBox{
+        width: 100%;
+    }
+    .InfoProduct{
+        width: 100%;
+        padding: 28px 50px 68px 50px;
+    }
+    .ImageBox{
+        height: 75vh;
+        box-sizing: border-box;
+    }
+    .Image{
+        /* height: auto; */
+        margin-top: 10%;
+        height: 80%;
+        width: auto;
+    }
+    .SizeForm{
+        height: 100px;
+    }
+}

@@ -1,0 +1,89 @@
+.SlideDrawer{
+    width: 280px;
+    position: fixed;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 33200;
+    background-color: white;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+}
+
+@media (min-width: 900px){
+    .SlideDrawer{
+        display: none;
+    }
+}
+
+.LogoExit{
+    display: flex;
+}
+
+.ExitIcon{
+    font-size: 16px;
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+
+
+
+.fadeSlide-enter-active{
+    animation: openModal 0.4s ease-out forwards;
+}
+
+
+.fadeSlide-exit-active{
+    animation: closeModal 0.4s ease-out forwards;
+}
+
+
+.ModalOpen {
+    animation: openModal 0.4s ease-out forwards;
+}
+
+.ModalClosed {
+    animation: closeModal 0.4s ease-out forwards;
+}
+
+@keyframes openModal {
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes closeModal {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+}
+
+  .LogoContainer{
+      display: flex;
+      align-items: center;
+      margin-left: 20px;
+  }
+
+  .GenderSelector{
+      list-style: none;
+      display: flex;
+      height: 20%;
+      flex-direction: column;
+      justify-content: space-evenly;
+      text-align: center;
+      padding: 0;
+  }

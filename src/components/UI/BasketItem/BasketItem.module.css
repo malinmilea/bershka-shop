@@ -1,0 +1,55 @@
+.ImageProd{
+    height: 20vh;
+    width: auto; 
+    overflow:hidden;
+}
+
+.DataInfo{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin:0px 5%;
+}
+
+.ImageBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.ItemContainer{
+    display: flex;
+    width: 90%;
+    margin-left: 5%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-bottom: 1px solid gray;
+}
+
+.PriceSize{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 5%;
+}
+
+.ExitButton{
+    margin-left: 90%;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+p{
+    font-size: 0.9rem;
+}
+
+@media (min-width: 900px){
+    .ItemContainer{
+        width: 70%;
+        margin-left: 15%;
+        
+    }
+}

@@ -1,0 +1,27 @@
+.Image{
+    height: 55vh;
+    width: auto;
+}
+
+.Container{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.Text{
+    font-size: 1.2625rem;
+    font-weight: 500;
+    font-family: 'Apercu', sans-serif;
+    width: 80%;
+    text-align: center;
+}
+
+    
+@media (max-width: 900px){
+    .Image{
+        height: 40vh;
+    }
+}

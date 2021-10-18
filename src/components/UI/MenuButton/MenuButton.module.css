@@ -1,0 +1,21 @@
+.Button{
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    height: 24px;
+    width: 80px;
+    padding: 0 10px;
+    margin: 0 10px;
+    color: black;
+    font-family: 'Apercu', sans-serif;
+    border: none;
+    display: inline-block;
+background-color: transparent;
+border-radius: 5px;
+box-sizing: border-box;
+}
+
+.Button:hover{
+color: white;
+background-color: black;
+}

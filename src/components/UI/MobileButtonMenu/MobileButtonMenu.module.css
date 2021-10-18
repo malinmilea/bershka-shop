@@ -1,0 +1,12 @@
+.Button{
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    padding-bottom: 8px;
+    font-size: 0.8rem;
+    background-color: transparent;
+    text-decoration: none;
+    border: none;
+    font-family: 'Apercu', sans-serif;
+    cursor: pointer;
+}

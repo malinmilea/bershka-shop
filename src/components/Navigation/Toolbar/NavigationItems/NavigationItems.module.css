@@ -1,0 +1,91 @@
+.NavigationItems{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 48px;
+    padding: 0 28px 0 24px;
+    background-color: transparent;
+    justify-content: space-between;
+    z-index: 124;
+}
+
+
+@media (max-width: 900px){
+    .NavigationItems{
+        display: none;
+    }
+}
+
+.IconsBar {
+display: flex;
+list-style: none;
+font-size: 23px;
+}
+
+.Icon{
+    font-family: 'Apercu', sans-serif;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: black;
+    height: 24px;
+    width: 40px;
+    /* box-sizing: border-box; */
+}
+
+.SearchToolbar{
+    font-family: 'Apercu', sans-serif;
+    font-size: 13px;
+    line-height: 19.5px;
+    text-align: left;
+    text-decoration: none;
+    height: 21.5px;
+    width: 216px;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 0 16px 0 8px;
+    padding-bottom: 1px;
+    display: block;
+    color: black;
+}
+
+.SearchToolbar::placeholder{
+color: black;
+}
+
+.SearchSection{
+    width: 264px;
+    height: 24px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: baseline;
+}
+
+.SearchIcon {
+    font-family: 'Apercu', sans-serif;
+    text-align: center;
+    background-color: #FFFFFF;
+    color: black;
+    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    margin: auto;
+}
+
+.OperationalMenu{
+    display: flex;
+    margin-right: 30px;
+    max-width: 380px;
+}
+
+.GenderSelector{
+    display: flex;
+    list-style: none;
+}
+
+.LogoGender{
+    display: flex;
+    list-style: none;
+    width: 260px;
+}

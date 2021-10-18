@@ -1,0 +1,90 @@
+.ProductBox{
+    width: 25%;
+    /* padding: 4px; */
+}
+
+.ProductPicture{
+    width: 90%;
+    margin-left: 5%;
+    height: 70%;
+    object-fit: fill;
+    display: block;
+}
+
+.TitleHeart{
+    width: 90%;
+    margin-left: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Title{
+    font-family: 'Apercu', sans-serif;
+    width: 80%;
+    white-space: nowrap;
+    display: inline-block;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+    font-size: 0.8125rem;
+    font-weight: 400;
+	line-height: 16.25px;
+    text-align: left;
+}
+a{
+    color: black;
+}
+
+a:link {
+    text-decoration: none;
+  }
+  
+  a:visited {
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: none;
+  }
+  
+  a:active {
+    text-decoration: none;
+  }
+
+.Icon{
+    color: rgb(0, 0, 0);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.Star{
+    color: rgb(245,197,24);
+    font-size: 15px;
+}
+
+.QualityPrice{
+display: flex;
+width: 90%;
+margin-left: 5%;
+padding: 0;
+justify-content: space-between;
+font-size: 1rem;
+}
+.Price{
+ padding: 0;
+ margin: 0;
+ font-weight: 700; 
+}
+.Quality{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 760px){
+    .ProductBox{
+        width: 50%;
+        /* padding: 4px; */
+    }
+}

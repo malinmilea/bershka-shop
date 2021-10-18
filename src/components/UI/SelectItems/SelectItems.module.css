@@ -1,0 +1,26 @@
+.Title{
+    font-size: 1.3125rem;
+    font-weight:500;
+    line-height: 26.25px;
+    font-family: 'Apercu',sans-serif !important;
+    text-transform: capitalize;
+}
+
+.SelectItems{
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    margin-left: 5%;
+}
+
+.Filter{
+    cursor: pointer;
+width: 30px;
+height: 30px;
+border-radius: 20px;
+border: none;
+padding: 2px;
+box-shadow: 0px 1px 5px 1px #888888;
+}

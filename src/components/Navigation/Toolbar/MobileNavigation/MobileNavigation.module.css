@@ -1,0 +1,46 @@
+.MobileNav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    width: auto;
+}
+
+
+.LogoBurger{
+    display: flex;
+    align-items: center;
+        padding: 0 20px;
+        list-style: none;
+}
+
+.IconsBar {
+    padding: 0 20px;
+    display: flex;
+    list-style: none;
+    font-size: 23px;
+    }
+    
+    .Icon{
+        font-family: 'Apercu', sans-serif;
+        text-align: center;
+        background-color: #FFFFFF;
+        color: black;
+        height: 24px;
+        width: 40px;
+        cursor: pointer;
+        box-sizing: border-box;
+    }
+
+    
+@media (min-width: 900px){
+    .MobileNav{
+        display: none;
+    }
+}
+
+@media (max-width: 350px){
+    .Icon{
+        height: 20px;
+        width: 30px;
+    }
+}

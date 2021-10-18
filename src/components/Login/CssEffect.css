@@ -1,0 +1,36 @@
+
+.fadeLogin-enter-active{
+    animation: opend 0.4s ease-out forwards;
+}
+
+
+.fadeLogin-exit-active{
+    animation: closed 0.4s ease-out forwards;
+}
+
+.warnMessage{
+    z-index: 999999999;
+}
+
+@keyframes opend {
+    0% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes closed {
+    0% {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100%);
+    }
+}
+

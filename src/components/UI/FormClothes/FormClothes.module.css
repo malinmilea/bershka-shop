@@ -1,0 +1,45 @@
+.Form{
+    display: flex;
+    justify-content: center;
+    gap: 15%;
+}
+
+.Field{
+    border-style: none !important;
+    padding: 0;
+}
+
+.Selection{
+    display: flex;
+    align-self: center;
+    font-family: 'Apercu', sans-serif;
+    padding: 5px 0px;
+    font-size: 13px;
+	font-weight: 400;
+	line-height: 19.5px;
+	text-decoration: none solid #FFD700;
+}
+
+.Icon{
+    color: yellow;
+}
+
+.SubmitButton{
+    font-family: 'Apercu', sans-serif;
+    border-radius: 4px;
+    height: 40px;
+    color: rgb(255, 255, 255);
+    font-size: 0.6rem;
+	font-weight: 500;
+	line-height: 22.5px;
+	text-decoration: none solid rgb(255, 255, 255);
+	text-align: center;
+	text-indent: 0px;
+	text-transform: uppercase;
+	vertical-align: top;
+	word-spacing: 0px;
+    background-color: rgb(0, 0, 0);
+    margin: 20px 0px 0.5rem;
+	padding: 0px 0.8rem;
+    margin-left: 60%;
+}
