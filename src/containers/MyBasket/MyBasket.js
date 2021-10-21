@@ -12,7 +12,7 @@ const MyBasket = (props) => {
     }, [props.getBasket])
 
     let basketArticles = <Spinner />
-    console.log(props.articles);
+    console.log(props.articles, 'mybasket');
 
     const deleteArticle = (id) => {
         const newArticles = [...props.articles];

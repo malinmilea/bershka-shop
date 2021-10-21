@@ -14,6 +14,7 @@ export const WELCOME_USER = 'WELCOME_USER';
 export const LOG_IN = 'LOG_IN';
 export const AUTH_LOGOUT = 'AUTH_LOGOUT';
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_FAIL = 'AUTH_FAIL';
 export const SHOW_MODAL = 'SHOW_MODAL';
 export const FAVORITE_CLOTHES = 'FAVORITE_CLOTHES';
 export const GET_FAVORITE_CLOTHES = 'GET_FAVORITE_CLOTHES';

@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from 'react-router-dom';
-import { withRouter } from "react-router";
 
 const navigationItem = props => {
     console.log(props);
@@ -15,4 +14,4 @@ const navigationItem = props => {
     )
 }
 
-export default withRouter(navigationItem);
+export default navigationItem;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
 import Toolbar from '../Navigation/Toolbar/Toolbar';
 import './Layout.module.css';
@@ -16,15 +16,15 @@ const Layout = (props) => {
 
     const closeSearchBar = () => {
         setVisibilitySearch(false);
-    }
+    };
 
-    const toggleMobileMenu = () => {
-        setVisibilityMobileMenu(!visibilityMobileMenu);
-    }
+    const toggleMobileMenu = useCallback(() => {
+        setVisibilityMobileMenu(!visibilityMobileMenu)
+    }, [visibilityMobileMenu]);
 
-    const toggleSearchModal = () => {
+    const toggleSearchModal = useCallback(() => {
         setVisibilitySearch(!visibilitySearch);
-    }
+    }, [visibilitySearch])
     console.log('layout', props);
 
     return (<>

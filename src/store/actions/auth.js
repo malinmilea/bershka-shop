@@ -28,6 +28,12 @@ export const logIn = () => {
     }
 }
 
+export const authFail = () => {
+    return {
+        type: actions.AUTH_FAIL
+    }
+}
+
 export const saveBasketAndLogout = (token, localId) => {
     return dispatch => {
         const basket = JSON.parse(localStorage.getItem('BasketArticles'));
@@ -107,7 +113,9 @@ export const auth = (accountData, login) => {
                 })
             })
             .catch(err => {
-                console.log(err);
+                // console.log('nu merge');
+                dispatch(authFail());
+                // setTimeout(dispatch(welcomeUser()), 1000)
             })
     }
 }

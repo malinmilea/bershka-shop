@@ -1,11 +1,11 @@
 import React from "react";
-import DrawerToggle from "../SideDrawer/DrawerToggle/DrawerToggle";
 import MobileNavigation from "./MobileNavigation/MobileNavigation";
 import NavigationItems from "./NavigationItems/NavigationItems";
 import classes from './Toolbar.module.css'
 
 
 const toolbar = (props) => {
+    console.log('toolbar', props)
     return (<header >
         <nav className={classes.Navbar}>
             <MobileNavigation opened={props.open} search={props.search} />
@@ -15,4 +15,4 @@ const toolbar = (props) => {
     )
 }
 
-export default React.memo(toolbar, () => true);
+export default React.memo(toolbar);

@@ -23,7 +23,7 @@ const App = (props) => {
       <Route path='/search/:query' render={props => <AsyncSearchResults {...props} />} />
       <Route path='/favorites' render={props => <AsyncFavorite {...props} />} />
       <Route path='/basket' render={props => <AsyncMyBasket {...props} />} />
-      <Route path='/' component={MainPromo} />
+      <Route path='/' render={props => <MainPromo {...props} />} />
       <Redirect to='/'></Redirect>
     </Switch>
   )

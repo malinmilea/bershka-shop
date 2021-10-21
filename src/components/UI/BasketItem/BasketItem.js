@@ -3,6 +3,7 @@ import classes from './BasketItem.module.css';
 import { BsXCircle } from 'react-icons/bs';
 
 const basketItem = (props) => {
+    console.log('basketItem', props);
     return (<div className={classes.ItemContainer} data-aos="fade-right">
         <div className={classes.ImageBox}>
             <img src={props.image} className={classes.ImageProd} />
@@ -18,4 +19,6 @@ const basketItem = (props) => {
     </div>)
 }
 
-export default basketItem;
+export default React.memo(basketItem, (prevProps, nextProps) => {
+    return prevProps.id === nextProps.id;
+});

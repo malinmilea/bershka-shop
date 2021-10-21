@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import classes from './Article.module.css';
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { connect } from 'react-redux';
@@ -38,10 +38,10 @@ const Article = (props) => {
         toast.success('Added successfully in bakset')
     }
 
-    const ableButton = (e) => {
+    const ableButton = useCallback((e) => {
         e.preventDefault();
         e.target.value === '' ? setButtonStatus(false) : setButtonStatus(true);
-    }
+    }, [])
 
     let article = <Spinner />
 

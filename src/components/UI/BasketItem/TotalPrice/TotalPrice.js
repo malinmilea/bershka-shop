@@ -9,7 +9,6 @@ const TotalPrice = (props) => {
     let finalPrice = 0;
     let history = useHistory();
     props.articles.forEach(article => {
-        console.log(article.size.length);
         finalPrice += (article.price * article.size.length);
     })
 

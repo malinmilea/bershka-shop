@@ -45,6 +45,8 @@ const navigationItems = props => {
     )
 }
 
+
+
 const mapDispatchToProps = dispatch => {
     return {
         showLogin: () => dispatch(authActions.showModal())

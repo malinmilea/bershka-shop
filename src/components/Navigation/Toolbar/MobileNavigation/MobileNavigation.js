@@ -8,6 +8,7 @@ import classes from './MobileNavigation.module.css'
 
 
 const mobileNavigation = (props) => {
+    console.log('mobile nav', props);
     return (<ul className={classes.MobileNav}>
         <ul className={classes.LogoBurger}>
             <DrawerToggle clicked={props.opened} />
@@ -29,4 +30,4 @@ const mobileNavigation = (props) => {
     </ul>)
 }
 
-export default mobileNavigation;
+export default React.memo(mobileNavigation);

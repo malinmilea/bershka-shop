@@ -8,13 +8,9 @@ import * as actions from '../../../store/actions/article';
 
 
 const Article = (props) => {
-    const { favorite, updateFavorite, getFavClothes } = props;
-    console.log(favorite, updateFavorite);
-    // const renderCount = useRef(0);
-    useEffect(() => {
-        getFavClothes();
-    }, [])
-    // renderCount.current++
+    const { favorite, updateFavorite } = props;
+    console.log(props);
+
     const toggleFavorite = () => {
         const isFav = favorite.some(article => article.id === props.id);
         console.log(isFav, props.id);
@@ -30,7 +26,6 @@ const Article = (props) => {
         }
     }
 
-    // console.log(renderCount.current);
     return (<div className={classes.ProductBox} >
         <Link to={props.url}>
             <img src={props.image} className={classes.ProductPicture} />
@@ -58,10 +53,18 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         updateFavorite: (favArticles) => dispatch(actions.favoriteClothes(favArticles)),
-        getFavClothes: () => dispatch(actions.getFavoriteClothes())
     }
 }
 
 
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Article, (prevProps, nextProps) => {
+    if (prevProps.favorite.some(art => art.id === nextProps.id) && nextProps.favorite.every(art => art.id !== prevProps.id)) {
+        return false;
+    }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Article);
+    if (prevProps.favorite.every(art => art.id !== nextProps.id) && nextProps.favorite.some(art => art.id === prevProps.id)) {
+        return false;
+    }
+
+    return true;
+}));

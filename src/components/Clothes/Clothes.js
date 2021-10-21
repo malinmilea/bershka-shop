@@ -4,19 +4,24 @@ import Spinner from '../UI/Spinner/Spinner';
 import Article from "./Article/Article";
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/clothes';
+import * as artActions from '../../store/actions/article';
 import NothingToSeeHere from "../NothingToSeeHere/NothingToSeeHere";
 import { toast } from "react-toastify";
 
 
 const Clothes = (props) => {
-    const { onFetchingClothes, onFetchingAllClothes, section, filtered, filters, filterClothes } = props;
-    console.log(filters);
+    const { onFetchingClothes, onFetchingAllClothes, section, filtered, filters, getFavClothes } = props;
+    console.log(props, 'clothes');
 
+
+    useEffect(() => {
+        getFavClothes();
+    }, [])
 
 
     useEffect(() => {
         filtered ? onFetchingAllClothes(section) : onFetchingClothes(section);
-    }, [onFetchingClothes, onFetchingAllClothes, filtered, section, filters, filtered])
+    }, [onFetchingClothes, onFetchingAllClothes, filtered, section, filters])
 
     let clothes = <Spinner />
     if (!props.loading && !props.error) {
@@ -69,6 +74,7 @@ const mapDispatchToProps = dispatch => {
         onFetchingClothes: (query) => dispatch(actions.fetchClothes(query)),
         onFetchingAllClothes: (filter) => dispatch(actions.fetchSearchedClothes(filter)),
         filterClothes: (price, rating) => dispatch(actions.filterResults(price, rating)),
+        getFavClothes: () => dispatch(artActions.getFavoriteClothes())
     }
 }
 

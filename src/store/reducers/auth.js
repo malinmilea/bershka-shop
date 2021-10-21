@@ -3,8 +3,6 @@ import { updateObject } from '../utility';
 
 const initialState = {
     newUser: false,
-    isAuth: false,
-    token: null,
     userId: null,
     show: false,
     error: false
@@ -13,14 +11,14 @@ const initialState = {
 const createNewUser = (state) => {
     return updateObject(state, {
         newUser: true,
-        isAuth: false,
+        error: false
     })
 }
 
 const welcomeUser = (state) => {
     return updateObject(state, {
         newUser: false,
-        isAuth: true
+        error: false
     })
 }
 
@@ -37,12 +35,17 @@ const authSuccess = (state, action) => {
     })
 };
 
+const authFail = (state) => {
+    return updateObject(state, {
+        error: true,
+    })
+}
+
 const authLogout = (state) => {
     return updateObject(state, {
         token: null,
         userId: null,
         newUser: false,
-        isAuth: false,
     });
 }
 
@@ -60,6 +63,7 @@ const reducer = (state = initialState, action) => {
         case actions.AUTH_SUCCESS: return authSuccess(state, action);
         case actions.AUTH_LOGOUT: return authLogout(state, action);
         case actions.SHOW_MODAL: return showModal(state);
+        case actions.AUTH_FAIL: return authFail(state);
         default:
             return state;
     }
