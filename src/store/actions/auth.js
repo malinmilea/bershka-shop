@@ -104,7 +104,7 @@ export const auth = (accountData, login) => {
                         const userId = Object.keys(res.data).filter(a => res.data[a].token === response.data.localId);
                         console.log(userId);
                         if (userId) {
-                            const basket = res.data[userId].basket;
+                            const basket = res.data[userId]?.basket;
                             if (basket) {
                                 localStorage.setItem('BasketArticles', JSON.stringify(basket));
                             }

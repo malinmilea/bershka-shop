@@ -7,9 +7,10 @@ import TotalPrice from "../../components/UI/BasketItem/TotalPrice/TotalPrice";
 import NothingToSeeHere from "../../components/NothingToSeeHere/NothingToSeeHere";
 
 const MyBasket = (props) => {
+    const { getBasket } = props;
     useEffect(() => {
-        props.getBasket()
-    }, [props.getBasket])
+        getBasket()
+    }, [getBasket])
 
     let basketArticles = <Spinner />
     console.log(props.articles, 'mybasket');
@@ -25,6 +26,7 @@ const MyBasket = (props) => {
             return <BasketItem
                 key={article.id}
                 id={article.id}
+                articles={props.articles}
                 title={article.title}
                 price={article.price}
                 size={article.size}

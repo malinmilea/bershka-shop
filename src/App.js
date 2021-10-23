@@ -28,7 +28,7 @@ const App = (props) => {
     </Switch>
   )
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/'>
       <Layout />
       {routes}
     </BrowserRouter>

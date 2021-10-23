@@ -19,6 +19,4 @@ const basketItem = (props) => {
     </div>)
 }
 
-export default React.memo(basketItem, (prevProps, nextProps) => {
-    return prevProps.id === nextProps.id;
-});
+export default React.memo(basketItem);

@@ -65,7 +65,8 @@ const mapStateToProps = state => {
         loading: state.clothes.loading,
         error: state.clothes.error,
         isAuth: state.auth.token !== null,
-        filters: state.clothes.filter
+        filters: state.clothes.filter,
+        favorite: state.article.favClothes
     }
 }
 

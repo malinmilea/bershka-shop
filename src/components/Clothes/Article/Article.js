@@ -57,14 +57,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Article, (prevProps, nextProps) => {
-    if (prevProps.favorite.some(art => art.id === nextProps.id) && nextProps.favorite.every(art => art.id !== prevProps.id)) {
-        return false;
-    }
-
-    if (prevProps.favorite.every(art => art.id !== nextProps.id) && nextProps.favorite.some(art => art.id === prevProps.id)) {
-        return false;
-    }
-
-    return true;
-}));
+export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Article));
