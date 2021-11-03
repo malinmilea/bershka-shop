@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BiHeart } from 'react-icons/bi';
 import { BsPerson, BsBag, BsSearch } from 'react-icons/bs'
 import NavigationItem from "./NavigationItem/NavigationItem";
@@ -9,6 +9,7 @@ import { connect } from "react-redux";
 import * as authActions from '../../../../store/actions/auth'
 
 const navigationItems = props => {
+    console.log('navigationItems');
     return (
         <ul className={classes.NavigationItems}>
             <ul className={classes.LogoGender}>

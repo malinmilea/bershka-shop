@@ -14,4 +14,7 @@ const navigationItem = props => {
     )
 }
 
-export default navigationItem;
+export default React.memo(navigationItem, (prevProps, nextProps) => {
+    console.log(prevProps.children === nextProps.children);
+    return prevProps.link === nextProps.link;
+});

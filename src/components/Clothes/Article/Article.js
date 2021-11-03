@@ -1,30 +1,15 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from './Article.module.css';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 import { BsStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { connect } from "react-redux";
-import * as actions from '../../../store/actions/article';
 
 
 const Article = (props) => {
-    const { favorite, updateFavorite } = props;
-    console.log(props);
+    const { toggleFavorite, isFav } = props;
 
-    const toggleFavorite = () => {
-        const isFav = favorite.some(article => article.id === props.id);
-        console.log(isFav, props.id);
-        if (!isFav) {
-            updateFavorite([...favorite, {
-                id: props.id,
-                image: props.image,
-                price: props.price,
-                title: props.title
-            }])
-        } else {
-            updateFavorite(favorite.filter(article => article.id !== props.id))
-        }
-    }
+    const [favorited, setFavorited] = useState(isFav);
+
 
     return (<div className={classes.ProductBox} >
         <Link to={props.url}>
@@ -32,9 +17,11 @@ const Article = (props) => {
         </Link>
         <div className={classes.TitleHeart}>
             <p className={classes.Title}>{props.title}</p>
-            <div onClick={toggleFavorite}>
-                {favorite.some(article => article.id === props.id)
-                    ? <IoHeart className={classes.Icon} style={{ color: 'red' }} />
+            <div onClick={() => {
+                toggleFavorite(props.id, props.image, props.price, props.title, favorited, props.favoritesOtherPage, props.pageClothes);
+                setFavorited(favorited => !favorited)
+            }}>
+                {favorited ? <IoHeart className={classes.Icon} style={{ color: 'red' }} />
                     : <IoHeartOutline className={classes.Icon} />}
             </div>
         </div>
@@ -44,17 +31,7 @@ const Article = (props) => {
         </div>
     </div>)
 }
-const mapStateToProps = state => {
-    return {
-        favorite: state.article.favClothes
-    }
-}
 
-const mapDispatchToProps = dispatch => {
-    return {
-        updateFavorite: (favArticles) => dispatch(actions.favoriteClothes(favArticles)),
-    }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(React.memo(Article));
+export default React.memo(Article, (a, b) => {
+    return a.favorited === b.favorited
+});

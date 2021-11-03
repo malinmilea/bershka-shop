@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classes from './BasketItem.module.css';
 import { BsXCircle } from 'react-icons/bs';
 
-const basketItem = (props) => {
-    console.log('basketItem', props);
+const BasketItem = (props) => {
+
+    console.log('second or first', props);
     return (<div className={classes.ItemContainer} data-aos="fade-right">
         <div className={classes.ImageBox}>
             <img src={props.image} className={classes.ImageProd} />
         </div>
         <div className={classes.DataInfo}>
-            <BsXCircle className={classes.ExitButton} onClick={() => props.delete(props.id)} />
+            <BsXCircle className={classes.ExitButton} onClick={() => {
+                props.delete(props.id);
+            }} />
             <p>{props.title}</p>
             <div className={classes.PriceSize}>
                 <p>{props.price} $</p>
@@ -19,4 +22,13 @@ const basketItem = (props) => {
     </div>)
 }
 
-export default React.memo(basketItem);
+const MemoizedBasketItem = props => {
+    return useMemo(() => {
+        return <BasketItem {...props} />
+    }, [props.image, props.delete])
+}
+
+export default React.memo(MemoizedBasketItem, (a, b) => {
+    console.log(a.delete === b.delete, 'delete method ');
+    return a.delete === b.delete;
+});

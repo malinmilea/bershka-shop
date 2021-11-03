@@ -10,7 +10,7 @@ const useAuth = (schema) => {
         resolver: yupResolver(schema),
     });
 
-    const submitData = useCallback((data) => setLoginData(data));
+    const submitData = useCallback((data) => setLoginData(data), []);
 
     console.log('se randeaza', isSubmitSuccessful);
 
@@ -26,9 +26,9 @@ const useAuth = (schema) => {
     }, [])
 
     return {
-        register: register,
+        register: useCallback(register, []),
         handSubmit: handleSubmit(submitData),
-        reset: useCallback(reset),
+        reset: useCallback(reset, []),
         errors: errors,
         submited: isSubmitSuccessful,
         checkErrors: checkForErrors,

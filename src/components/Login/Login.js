@@ -50,8 +50,8 @@ const Login = (props) => {
     const logout = useCallback((token, localId) => dispatch(actions.saveBasketAndLogout(token, localId)), [token, localId]);
     const showModal = () => dispatch(actions.showModal())
 
-    console.log(ErrRegister, ErrLogin);
-    console.log(error);
+    console.log(ErrRegister, ErrLogin, 'login part');
+    console.log(props);
 
     useEffect(() => {
         if (error) {
@@ -153,4 +153,4 @@ const Login = (props) => {
 
 Login.whyDidYouRender = true;
 
-export default React.memo(Login, isEqual);
+export default React.memo(Login);

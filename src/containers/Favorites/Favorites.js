@@ -10,7 +10,7 @@ const Favorites = (props) => {
     const { getFavClothes } = props;
     useEffect(() => {
         getFavClothes();
-    }, [getFavClothes])
+    }, [])
 
     let favProd = <Spinner />
 
