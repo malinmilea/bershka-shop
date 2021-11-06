@@ -12,8 +12,7 @@ import { toast } from "react-toastify";
 const Clothes = (props) => {
     const { onFetchingClothes, onFetchingAllClothes, section, filtered, filters, getFavClothes, favorite, updateFavorite } = props;
     console.log(props, 'clothes');
-    // const [localClothes, setLocalClothes] = useState(props.clothes);
-    const listOfItems = useRef()
+    const listOfItems = useRef();
 
     useEffect(() => {
         getFavClothes();
@@ -22,7 +21,6 @@ const Clothes = (props) => {
 
     useEffect(() => {
         filtered ? onFetchingAllClothes(section) : onFetchingClothes(section);
-        // setLocalClothes(props.clothes);
     }, [filtered, section, filters]);
 
     const isFavorite = props.clothes.map(art => [art.id, favorite.some(article => article.id === art.id)]);

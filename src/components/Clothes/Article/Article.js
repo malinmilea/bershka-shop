@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import classes from './Article.module.css';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 import { BsStarFill } from 'react-icons/bs';

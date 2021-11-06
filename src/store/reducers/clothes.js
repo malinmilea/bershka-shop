@@ -1,9 +1,9 @@
-import { filter } from 'dom-helpers';
 import * as actions from '../actions/actions';
 import { updateObject } from '../utility'
 
 const initialState = {
     clothes: [],
+    searchResults: [],
     loading: false,
     error: false,
     filter: {
@@ -43,6 +43,12 @@ const filterResults = (state, action) => {
     })
 }
 
+const setSearchResults = (state, action) => {
+    return updateObject(state, {
+        searchResults: action.searchResults
+    })
+}
+
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -50,6 +56,7 @@ const reducer = (state = initialState, action) => {
         case actions.FETCH_CLOTHES_FAIL: return fetchClothesFails(state, action);
         case actions.SET_CLOTHES: return setClothes(state, action);
         case actions.FILTER_RESULTS: return filterResults(state, action);
+        case actions.SET_SEARCH_RESULTS: return setSearchResults(state, action)
         default:
             return state;
     }

@@ -8,6 +8,13 @@ export const fetchClothesFail = (error) => {
     }
 }
 
+export const setSearchClothes = (searchResults) => {
+    return {
+        type: action.SET_SEARCH_RESULTS,
+        searchResults: searchResults
+    }
+}
+
 export const fetchClothesStart = () => {
     return {
         type: action.FETCH_CLOTHES_START,
@@ -29,13 +36,13 @@ export const filterResults = (price, rating) => {
     }
 }
 
-export const fetchSearchedClothes = (filt) => {
+export const fetchSearchedClothes = (filt, searchBar) => {
     return dispatch => {
-        dispatch(fetchClothesStart());
+        !searchBar && dispatch(fetchClothesStart());
         axios.get('https://fakestoreapi.com/products').then(res => {
             const regex = new RegExp(`(.*${filt}.*)`, 'g')
             const result = res.data.filter(article => regex.test(article.title.toLowerCase()));
-            dispatch(setClothes(result))
+            searchBar ? dispatch(setSearchClothes(result)) : dispatch(setClothes(result));
             console.log(res.data);
         }).catch(err => {
             dispatch(fetchClothesFail());
