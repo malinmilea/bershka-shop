@@ -20,7 +20,6 @@ const Article = (props) => {
 
     const handleSize = (e) => {
         e.preventDefault();
-        console.log(articles);
         if (articles.every(art => art.id !== props.article.id)) {
             props.setBasket([...articles, {
                 id: props.article.id,

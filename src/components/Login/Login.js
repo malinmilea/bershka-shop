@@ -19,7 +19,6 @@ const Login = (props) => {
 
 
     const [loader, setLoader] = useState(false);
-    console.log(loader, 'aici ai loader');
 
     const dispatch = useDispatch();
 
@@ -66,8 +65,6 @@ const Login = (props) => {
     const logout = useCallback((token, localId) => dispatch(actions.saveBasketAndLogout(token, localId)), [token, localId]);
     const showModal = () => dispatch(actions.showModal())
 
-    console.log(ErrRegister, ErrLogin, 'login part');
-    console.log(props);
 
     useEffect(() => {
         if (error) {
@@ -95,7 +92,6 @@ const Login = (props) => {
         }
         checkErrorsRegister(ErrRegister, show);
     }, [submitedRegister, ErrRegister]);
-    // console.log('render login');
 
     let loginForm = <Spinner />;
 

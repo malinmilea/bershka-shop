@@ -11,7 +11,6 @@ const FavButtonArticle = (props) => {
         props.getFavorites();
     }, [])
     useEffect(() => {
-        console.log(favorited);
         if (favorited === undefined) {
             setFavorited(props.favoriteItems.some(fav => fav.id === props.id))
         }
@@ -19,7 +18,6 @@ const FavButtonArticle = (props) => {
 
     const deleteArticle = useCallback(() => {
         const isFav = favorited;
-        console.log(isFav);
         if (isFav) {
             props.setNewFavorites(props.favoriteItems.filter(fav => fav.id !== props.id));
         } else {

@@ -12,10 +12,8 @@ const useAuth = (schema) => {
 
     const submitData = useCallback((data) => setLoginData(data), []);
 
-    console.log('se randeaza', isSubmitSuccessful);
 
     const checkForErrors = useCallback((errors, show) => {
-        console.log('e de la checkForErrors');
         if (typeof errors === 'object' && Object.keys(errors).length !== 0 && show) {
             for (const err in errors) {
                 toast.warn(errors[err].message, {

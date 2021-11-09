@@ -25,7 +25,6 @@ const Layout = (props) => {
     const toggleSearchModal = useCallback(() => {
         setVisibilitySearch(!visibilitySearch);
     }, [visibilitySearch])
-    console.log('layout', props);
 
     return (<>
         <SideDrawer show={visibilityMobileMenu} closed={closeMobileMenu}></SideDrawer>

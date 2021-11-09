@@ -9,7 +9,6 @@ import NothingToSeeHere from "../../components/NothingToSeeHere/NothingToSeeHere
 const MyBasket = (props) => {
     const { getBasket, articles, setBasket } = props;
     const [localArticles, setLocalArticles] = useState(articles);
-    console.log(localArticles, articles, 'my basket');
 
 
     useEffect(() => {

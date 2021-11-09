@@ -20,7 +20,6 @@ const Favorites = (props) => {
         itemRef.current = props.favorite.map(fav => fav.id);
     }, [props.favorite]);
 
-    console.log(favItems);
 
     let favProd = <Spinner />
 

@@ -7,7 +7,6 @@ import * as actions from '../../store/actions/clothes';
 
 const SearchResults = (props) => {
     const query = props.match.params.query;
-    console.log(props.filters);
 
     useEffect(() => {
         return () => {

@@ -43,7 +43,6 @@ export const fetchSearchedClothes = (filt, searchBar) => {
             const regex = new RegExp(`(.*${filt}.*)`, 'g')
             const result = res.data.filter(article => regex.test(article.title.toLowerCase()));
             searchBar ? dispatch(setSearchClothes(result)) : dispatch(setClothes(result));
-            console.log(res.data);
         }).catch(err => {
             dispatch(fetchClothesFail());
         });
@@ -56,7 +55,6 @@ export const fetchClothes = (query) => {
         dispatch(fetchClothesStart());
         const url = query ? `https://fakestoreapi.com/products/category/${query}` : 'https://fakestoreapi.com/products';
         axios.get(url).then(response => {
-            console.log(response.data)
             dispatch(setClothes(response.data));
         }).catch(error => {
             dispatch(fetchClothesFail());

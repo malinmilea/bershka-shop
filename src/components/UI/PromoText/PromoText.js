@@ -6,7 +6,6 @@ const PromoText = (props) => {
     const promoTitleStyle = {
         color: '#00ca8d'
     }
-    console.log('promotext');
     return (<div style={{
         position: 'fixed',
         bottom: 0,

@@ -42,7 +42,6 @@ export const fetchArticle = (id) => {
         dispatch(fetchArticleStart());
         const url = `https://fakestoreapi.com/products/${id}`;
         axios.get(url).then(response => {
-            // console.log(response.data);
             dispatch(setArticle(response.data))
         }).catch(error => {
             dispatch(fetchArticleFail())

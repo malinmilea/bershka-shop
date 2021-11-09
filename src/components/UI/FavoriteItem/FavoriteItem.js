@@ -9,7 +9,6 @@ const FavoriteItem = (props) => {
     const cssClass = ratioH ? [classes.ProductPicture, classes.FillWidth] : [classes.ProductPicture, classes.FillHeight];
 
     const handleSizes = ({ target: img }) => {
-        console.log(img.offsetHeight, img.offsetWidth);
         if (img.offsetHeight < img.offsetWidth) {
             setRatioH(false);
         }

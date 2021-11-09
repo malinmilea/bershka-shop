@@ -11,7 +11,6 @@ import { toast } from "react-toastify";
 
 const Clothes = (props) => {
     const { onFetchingClothes, onFetchingAllClothes, section, filtered, filters, getFavClothes, favorite, updateFavorite } = props;
-    console.log(props, 'clothes');
     const listOfItems = useRef();
 
     useEffect(() => {
@@ -26,7 +25,6 @@ const Clothes = (props) => {
     const isFavorite = props.clothes.map(art => [art.id, favorite.some(article => article.id === art.id)]);
 
 
-    console.log(listOfItems.current, props.favorite, isFavorite);
 
     useEffect(() => {
         const atrticlesIds = props.clothes.map(clt => clt.id);

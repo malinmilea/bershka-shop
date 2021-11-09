@@ -35,7 +35,6 @@ export const postOrder = (articles, finalPrice, token, localId) => {
             axios.delete(`${basketUrl}?auth=${token}&token=${localId}`);
             dispatch(setBasketArticle([]));
         }).catch(err => {
-            console.log(err);
             dispatch(getBasketFails())
         })
     }

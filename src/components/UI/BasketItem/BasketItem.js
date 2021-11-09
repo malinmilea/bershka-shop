@@ -4,7 +4,6 @@ import { BsXCircle } from 'react-icons/bs';
 
 const BasketItem = (props) => {
 
-    console.log('second or first', props);
     return (<div className={classes.ItemContainer} data-aos="fade-right">
         <div className={classes.ImageBox}>
             <img src={props.image} className={classes.ImageProd} />
@@ -29,6 +28,5 @@ const MemoizedBasketItem = props => {
 }
 
 export default React.memo(MemoizedBasketItem, (a, b) => {
-    console.log(a.delete === b.delete, 'delete method ');
     return a.delete === b.delete;
 });

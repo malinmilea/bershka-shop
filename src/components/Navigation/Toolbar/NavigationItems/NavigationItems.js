@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 import * as authActions from '../../../../store/actions/auth'
 
 const navigationItems = props => {
-    console.log('navigationItems');
     return (
         <ul className={classes.NavigationItems}>
             <ul className={classes.LogoGender}>

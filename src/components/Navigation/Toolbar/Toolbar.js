@@ -5,7 +5,6 @@ import classes from './Toolbar.module.css'
 
 
 const toolbar = (props) => {
-    console.log('toolbar', props)
     return (<header >
         <nav className={classes.Navbar}>
             <MobileNavigation opened={props.open} search={props.search} />

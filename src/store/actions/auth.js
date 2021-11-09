@@ -79,7 +79,6 @@ export const checkAuthTimeout = (expirationTime) => {
 
 export const auth = (accountData, login) => {
     return dispatch => {
-        console.log(accountData);
         const authData = {
             email: login ? accountData.email : accountData.emailRegister,
             password: login ? accountData.password : accountData.passRegister,
@@ -102,7 +101,6 @@ export const auth = (accountData, login) => {
                 axios.get(`${basketUrl}?auth=${response.data.idToken}`).then(res => {
                     if (res.data) {
                         const userId = Object.keys(res.data).filter(a => res.data[a].token === response.data.localId);
-                        console.log(userId);
                         if (userId) {
                             const basket = res.data[userId]?.basket;
                             if (basket) {
@@ -113,7 +111,6 @@ export const auth = (accountData, login) => {
                 })
             })
             .catch(err => {
-                // console.log('nu merge');
                 dispatch(authFail());
                 // setTimeout(dispatch(welcomeUser()), 1000)
             })

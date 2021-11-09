@@ -22,7 +22,6 @@ const SearchBar = props => {
         }
     }, 1000, [clothesRequest]);
 
-    console.log(inputRef.current?.value, clothesRequest, props.clothes);
     const getRequestedArticles = (event) => {
         event.preventDefault();
         history.location.pathname = '/';
