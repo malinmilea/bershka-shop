@@ -53,6 +53,7 @@ const SearchBar = props => {
                         <div className={classes.ResultsSearch}>
                             {props.clothes.map((article, index) => <div key={article.id}>
                                 <Link
+                                    style={{ textDecoration: 'none' }}
                                     to={`/article/${article.id}`}
                                     onClick={() => {
                                         props.closed();

@@ -57,7 +57,7 @@ const Login = (props) => {
         if (isAuth) {
             setLoader(true);
         }
-    }, 3000, [isAuth]);
+    }, 1500, [isAuth]);
 
     const onCreatingNewUser = () => dispatch(actions.createNewUser());
     const isAuthenticated = () => dispatch(actions.welcomeUser());

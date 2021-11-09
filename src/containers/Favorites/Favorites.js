@@ -42,7 +42,7 @@ const Favorites = (props) => {
             />
         })
     } else {
-        favProd = < NothingtoSeeHere logged={!props.isAuth} />
+        favProd = < NothingtoSeeHere favorite error />
     }
 
 
