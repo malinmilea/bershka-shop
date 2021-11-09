@@ -6,6 +6,7 @@ import * as actions from '../../store/actions/article';
 import * as basketActions from '../../store/actions/basket';
 import { toast } from "react-toastify";
 import NothingToSeeHere from "../../components/NothingToSeeHere/NothingToSeeHere";
+import FavButtonArticle from "../../components/UI/FavButtonArticle/FavButtonArticle";
 
 const Article = (props) => {
     const [buttonStatus, setButtonStatus] = useState(false);
@@ -61,8 +62,20 @@ const Article = (props) => {
                         <option value="M">M</option>
                         <option value="L">L</option>
                     </select>
-                    <input type='submit' value="Add to Basket" className={classes.SubmitButton} disabled={!props.isAuth || !buttonStatus} />
+                    <div className={classes.Buttons}>
+                        <input type='submit' value="Add to Basket" className={classes.SubmitButton} disabled={!props.isAuth || !buttonStatus} />
+                        <FavButtonArticle
+                            id={props.article.id}
+                            price={props.article.price}
+                            image={props.article.image}
+                            title={props.article.title}
+                            description={props.article.description}
+                            category={props.article.category}
+                            rating={props.article.rating}
+                        />
+                    </div>
                 </form>
+
                 {props.isAuth ? null : <p style={{ textAlign: 'center' }}>*Please log in to add products to your cart</p>}
             </div>
         </div>)

@@ -1,19 +1,48 @@
 .ProductBox{
     width: 25%;
     /* padding: 4px; */
+    /* height: 400px; */
+    margin-bottom: 6%;
+}
+
+.ImageBox{
+    height: 50vh ;
+    width: 100% ;
+    overflow: hidden;
 }
 
 .ProductPicture{
-    width: 90%;
-    margin-left: 5%;
-    height: 70%;
-    object-fit: fill;
-    display: block;
+    object-fit: contain;
+}
+
+.FillWidth {
+    width: 100%;
+    height: 100%;
+}
+
+.FillHeight {
+    height: 100%; 
+    width: 100%;
+}
+
+.TitleButton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.DeleteButton{
+    color: rgb(174, 13, 13);
+    width: 25px;
+    margin-left: 10px;
+    height: 20px;
+    padding: 3px;
+    cursor: pointer;
 }
 
 .Title{
     font-family: 'Apercu', sans-serif;
-    width: 90%;
+    width: 80%;
     margin-left: 5%;
     white-space: nowrap;
     display: inline-block;

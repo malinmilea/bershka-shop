@@ -3,6 +3,7 @@ import classes from './Article.module.css';
 import { IoHeart, IoHeartOutline } from 'react-icons/io5';
 import { BsStarFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 
 const Article = (props) => {
@@ -13,7 +14,9 @@ const Article = (props) => {
 
     return (<div className={classes.ProductBox} >
         <Link to={props.url}>
-            <img src={props.image} className={classes.ProductPicture} />
+            <LazyLoad className={classes.ImageBox} once>
+                <img src={props.image} className={classes.ProductPicture} />
+            </LazyLoad>
         </Link>
         <div className={classes.TitleHeart}>
             <p className={classes.Title}>{props.title}</p>

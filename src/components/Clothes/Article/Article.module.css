@@ -3,11 +3,14 @@
     /* padding: 4px; */
 }
 
+.ImageBox{
+    height: 300px;
+}
+
 .ProductPicture{
-    width: 90%;
-    margin-left: 5%;
-    height: 70%;
-    object-fit: fill;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
     display: block;
 }
 

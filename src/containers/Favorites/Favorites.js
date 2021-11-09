@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useCallback, useState } from "react";
 import * as actions from '../../store/actions/article';
 import { connect } from "react-redux";
 import Spinner from "../../components/UI/Spinner/Spinner";
@@ -7,22 +7,38 @@ import classes from './Favorites.module.css';
 import NothingtoSeeHere from '../../components/NothingToSeeHere/NothingToSeeHere';
 
 const Favorites = (props) => {
-    const { getFavClothes } = props;
+    const itemRef = useRef();
+    const [favItems, setFavItems] = useState(props.favorite);
+    const { getFavClothes, setFavClothes } = props;
+
     useEffect(() => {
         getFavClothes();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        setFavItems(props.favorite);
+        itemRef.current = props.favorite.map(fav => fav.id);
+    }, [props.favorite]);
+
+    console.log(favItems);
 
     let favProd = <Spinner />
 
+    const deleteFavorite = useCallback((id) => {
+        const favArticles = favItems.filter(fav => itemRef.current.includes(fav.id));
+        setFavClothes(favArticles.filter(article => article.id !== +id));
+    }, [])
+
 
     if (props.notEmpty) {
-        favProd = props.favorite.map(fav => {
+        favProd = favItems.map(fav => {
             return <FavoriteItem
                 key={fav.id}
                 id={fav.id}
                 title={fav.title}
                 image={fav.image}
                 price={fav.price}
+                delete={deleteFavorite}
             />
         })
     } else {
@@ -46,6 +62,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getFavClothes: () => dispatch(actions.getFavoriteClothes()),
+        setFavClothes: (listArticles) => dispatch(actions.favoriteClothes(listArticles))
     }
 }
 

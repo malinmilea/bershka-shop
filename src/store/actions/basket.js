@@ -31,6 +31,9 @@ export const postOrder = (articles, finalPrice, token) => {
         const dataOrder = { articles: articles, finalPrice: finalPrice, token: token };
         axios.post(`${url}?auth=${token}`, dataOrder).then(res => {
             localStorage.removeItem('BasketArticles');
-        }).catch(err => dispatch(getBasketFails()))
+        }).catch(err => {
+            console.log(err);
+            dispatch(getBasketFails())
+        })
     }
 }

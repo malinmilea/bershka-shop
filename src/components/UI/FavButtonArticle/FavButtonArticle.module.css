@@ -1,0 +1,11 @@
+.ButtonFav{
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    box-sizing: border-box;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    font-size: 23px;
+    margin-left: 5px;
+}
