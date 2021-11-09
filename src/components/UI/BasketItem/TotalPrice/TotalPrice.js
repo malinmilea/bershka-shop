@@ -13,9 +13,9 @@ const TotalPrice = (props) => {
     })
 
     const processOrder = () => {
-        props.sendOrder(props.articles, finalPrice, props.token);
+        props.sendOrder(props.articles, finalPrice, props.token, props.localId);
         history.push('/');
-        if (props.error) {
+        if (!props.error) {
             toast.success('You sent the order successfully')
         } else {
             toast.error("Something went wrong!")
@@ -41,13 +41,14 @@ const mapStateToProps = state => {
     return {
         articles: state.basket.articles,
         token: state.auth.token,
-        error: state.basket.error
+        error: state.basket.error,
+        localId: state.auth.userId
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        sendOrder: (articles, totalPrice, token) => dispatch(actions.postOrder(articles, totalPrice, token))
+        sendOrder: (articles, totalPrice, token, localId) => dispatch(actions.postOrder(articles, totalPrice, token, localId))
     }
 }
 

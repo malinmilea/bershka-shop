@@ -25,12 +25,15 @@ export const getBasketFails = (error) => {
 }
 
 
-export const postOrder = (articles, finalPrice, token) => {
+export const postOrder = (articles, finalPrice, token, localId) => {
     return dispatch => {
         const url = 'https://react-bershka-default-rtdb.firebaseio.com/orders.json';
+        const basketUrl = 'https://react-bershka-default-rtdb.firebaseio.com/basket.json';
         const dataOrder = { articles: articles, finalPrice: finalPrice, token: token };
         axios.post(`${url}?auth=${token}`, dataOrder).then(res => {
             localStorage.removeItem('BasketArticles');
+            axios.delete(`${basketUrl}?auth=${token}&token=${localId}`);
+            dispatch(setBasketArticle([]));
         }).catch(err => {
             console.log(err);
             dispatch(getBasketFails())
