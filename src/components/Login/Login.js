@@ -1,9 +1,8 @@
-import React, { useEffect, useRef, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Backdrop from "../UI/Backdrop/Backdrop";
 import { CSSTransition } from "react-transition-group";
 import { BsXLg } from 'react-icons/bs';
 import classes from './Login.module.css'
-import { isEqual } from 'lodash';
 import './CssEffect.css';
 import { schemaLogin, schemaRegister } from "./ValidationSchema/ValidationSchema";
 import useAuth from "../../hooks/useAuth";
@@ -11,11 +10,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../store/actions/auth';
 import Spinner from "../UI/Spinner/Spinner";
 import { toast } from 'react-toastify';
+import useDebounce from '../../hooks/useDebounce';
 
 const Login = (props) => {
     const { register: registerLogin, handSubmit: handleLogin, reset: resetLoginForm, errors: ErrLogin, submited: submitedLogin, checkErrors, loginData: loginData } = useAuth(schemaLogin);
 
     const { register: registerRegister, handSubmit: handleRegister, reset: resetRegisterForm, errors: ErrRegister, submited: submitedRegister, checkErrors: checkErrorsRegister, loginData: registerData } = useAuth(schemaRegister);
+
+
+    const [loader, setLoader] = useState(false);
+    console.log(loader, 'aici ai loader');
 
     const dispatch = useDispatch();
 
@@ -41,7 +45,19 @@ const Login = (props) => {
 
     const error = useSelector(state => {
         return state.auth.error;
-    })
+    });
+
+    useEffect(() => {
+        if (isAuth) {
+            setLoader(true);
+        }
+    }, []);
+
+    useDebounce(() => {
+        if (isAuth) {
+            setLoader(true);
+        }
+    }, 3000, [isAuth]);
 
     const onCreatingNewUser = () => dispatch(actions.createNewUser());
     const isAuthenticated = () => dispatch(actions.welcomeUser());
@@ -104,10 +120,17 @@ const Login = (props) => {
     }
 
     if (isAuth) {
-        loginForm = (
-            <div className={classes.Form} style={{ height: '200px', textAlign: 'center' }}>
-                <p className={classes.AuthTitle}>Hi, Radu Leat-Daniel!</p>
-                <button className={classes.Button} onClick={() => logout(token, localId)}>LOG OUT</button></div>)
+        loginForm = <Spinner />
+
+        if (loader) {
+            loginForm = (
+                <div className={classes.Form} style={{ height: '200px', textAlign: 'center' }}>
+                    <p className={classes.AuthTitle}>Hi, Welcome to Bershka!</p>
+                    <button className={classes.Button} onClick={() => {
+                        logout(token, localId);
+                        setLoader(false);
+                    }}>LOG OUT</button></div>)
+        }
     }
 
 

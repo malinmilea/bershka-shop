@@ -45,7 +45,7 @@ const SearchBar = props => {
                     }}>
                         <input type='text'
                             value={clothesRequest}
-                            onChange={(e) => setClothesRequest(e.target.value)}
+                            onChange={(e) => setClothesRequest(e.target.value.toLocaleLowerCase())}
                             ref={inputRef}
                             className={classes.SearchInput} placeholder='What are you looking for?' />
                     </form>
